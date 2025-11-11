@@ -27,7 +27,10 @@ const userSchema = new mongoose.Schema(
     },
     profilePicture: {
       type: String,
-      default: "",
+      default: () => {
+        const randomNumber = Math.floor(Math.random() * 100) + 1; // 1-100
+        return `https://avatar.iran.liara.run/public/${randomNumber}`;
+      },
     },
     bannerImage: {
       type: String,
